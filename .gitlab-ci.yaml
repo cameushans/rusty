@@ -1,0 +1,8 @@
+stages: 
+  - test1
+
+jobs:
+  stage: test1
+  script: 
+    - pwd
+    - ls -la
