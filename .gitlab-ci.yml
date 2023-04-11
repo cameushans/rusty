@@ -1,5 +1,6 @@
 stages: 
   - stage1
+  - stage2
 
 displayinfo:
   stage: stage1
@@ -7,3 +8,10 @@ displayinfo:
     - echo $CI_COMMIT_AUTHOR
     - echo $CI_COMMIT_SHORT_SHA	
     - git diff-tree --no-commit-id -r $CI_COMMIT_SHORT_SHA
+
+validarobase:
+  stage: stage2
+  script: 
+    - chmod +x ./chekAuthor.sh
+    - ./chekAuthor.sh $CI_COMMIT_AUTHOR 
+
