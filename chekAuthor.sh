@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ $1 == "@"]]
+if [[ $2 == *@* ]]
 then 
     echo "Valid address";
     exit 0;
