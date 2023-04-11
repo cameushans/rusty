@@ -1,8 +1,9 @@
 stages: 
   - test1
 
-jobs:
+display-infos:
   stage: test1
-  script: 
-    - pwd
-    - ls -la
+  script:
+    - echo $CI_COMMIT_AUTHOR
+    - echo $CI_COMMIT_SHORT_SHA
+    - git diff-tree --no-commit-id --name-only -r $CI_COMMIT_SHA
