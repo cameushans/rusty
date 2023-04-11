@@ -6,4 +6,3 @@ jobs:
   script: 
     - pwd
     - ls -la
-    - pi
