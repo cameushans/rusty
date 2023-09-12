@@ -1,23 +1,12 @@
-extern crate rand;
+mod alternate;
 
-use std::io;
-use rand::Rng;
-use std::cmp::Ordering;
-
+use crate::alternate::alternate;
+// first algorithm in Rust 
+// i found it very weird to use reference to manipulate parameters of the function
+// because they are living in the stack and destroyed when the function call terminate 
+// still struggling with ownership
 fn main() {
-
-    let random_number:u32 = rand::thread_rng().gen_range(1, 100);
-    let mut inp = String::new();
- 
-    io::stdin().read_line(&mut inp).expect("this is an error");
-    let inp:u32 = inp.trim().parse().expect("please type a number");
-    print!("Your Guess: {}", inp);
-    println!("the secret number is: {}", random_number);
-    match inp.cmp(&random_number) {
-        Ordering::Less => println!("Too small!"),
-        Ordering::Greater => println!("Too big!"),
-        Ordering::Equal => println!("You win!"),
-    }
+    let result = alternate(1, "true", "false");
+    println!("{:?}", result);
+    
 }
-
-
